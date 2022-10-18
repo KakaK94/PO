@@ -10,6 +10,7 @@ repositories {
     mavenCentral()
 }
 
+//to miałam zrobione wcześniej
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
@@ -24,5 +25,7 @@ application {
 }
 
 java {
-    languageVersion.set(JavaLanguageVersion.of(17))
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }
