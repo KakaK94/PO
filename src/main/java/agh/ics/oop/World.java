@@ -44,22 +44,7 @@ public class World {
 //        Vector2d position2 = new Vector2d(-2,1);
 //        System.out.println(position2);
 //        System.out.println(position1.add(position2));
-//        System.out.println(MapDirection.NORTH.toString());
-//        System.out.println(MapDirection.SOUTH.toString());
-//        System.out.println(MapDirection.WEST.toString());
-//        System.out.println(MapDirection.EAST.toString());
-//        System.out.println(MapDirection.NORTH.next());
-//        System.out.println(MapDirection.SOUTH.next());
-//        System.out.println(MapDirection.WEST.next());
-//        System.out.println(MapDirection.EAST.next());
-//        System.out.println(MapDirection.NORTH.previous());
-//        System.out.println(MapDirection.SOUTH.previous());
-//        System.out.println(MapDirection.WEST.previous());
-//        System.out.println(MapDirection.EAST.previous());
-//        System.out.println(MapDirection.NORTH.toUnitVector());
-//        System.out.println(MapDirection.SOUTH.toUnitVector());
-//        System.out.println(MapDirection.WEST.toUnitVector());
-//        System.out.println(MapDirection.EAST.toUnitVector());
+
 
         Animal kot = new Animal();
 //        out.println("System wystartował");
@@ -77,13 +62,15 @@ public class World {
 //        kot.move(MoveDirection.FORWARD);
 //        System.out.println(kot.toString());
 
-        String[] input = new String[]{"r", "o", "forward", "FOrWard", "FORWARD"};  //{'r', 's', 't', 'u', 'v'};
+
+        String[] input = new String[]{"R", "f","f","f","b"};  //{'r', 's', 't', 'u', 'v'};
         ArrayList<MoveDirection> output = new ArrayList<MoveDirection>();
         out.println("System wystartował");
         output = OptionsParser.parse(input);
         for (int i = 0; i < output.size(); i++) {
             MoveDirection one_dir = output.get(i);
             kot.move(one_dir);
+           // out.println(kot.toString());
         }
         out.println(kot.toString());
         out.println("System zakończył działanie");

@@ -7,8 +7,11 @@ public class OptionsParser {
         ArrayList<MoveDirection> output_directions = new ArrayList<MoveDirection>();
         for (int i = 0; i < input_directions.length; i++) {
             try {
+                //disregard case-sensitive
                 if(input_directions[i].length()>1){
-                    input_directions[i]=input_directions[i].toUpperCase();
+                    input_directions[i]=input_directions[i].toUpperCase(); }
+                if(input_directions[i].length()==1){
+                        input_directions[i]=input_directions[i].toLowerCase();
                 }
             switch (input_directions[i]) {
                 case "f", "FORWARD" -> output_directions.add(MoveDirection.FORWARD);
