@@ -3,10 +3,9 @@ package agh.ics.oop;
 import java.util.InputMismatchException;
 import java.util.ArrayList;
 public class OptionsParser {
-    public static ArrayList<MoveDirection> parse(String[] input_directions) {
-        ArrayList<MoveDirection> output_directions = new ArrayList<MoveDirection>();
+    public static MoveDirection[] parse(String[] input_directions) {
+        ArrayList<MoveDirection> output_directions = new ArrayList<>();
         for (int i = 0; i < input_directions.length; i++) {
-            try {
                 //disregard case-sensitive
                 if(input_directions[i].length()>1){
                     input_directions[i]=input_directions[i].toUpperCase(); }
@@ -18,11 +17,11 @@ public class OptionsParser {
                 case "b", "BACKWARD" -> output_directions.add(MoveDirection.BACKWARD);
                 case "l", "LEFT" -> output_directions.add(MoveDirection.LEFT);
                 case "r", "RIGHT" -> output_directions.add(MoveDirection.RIGHT);
-            };
+                default -> throw new IllegalArgumentException(input_directions[i] + " is not legal move specification");
+
             }
-            catch(InputMismatchException e){
-            }
+
         }
-        return output_directions;
+        return output_directions.toArray(MoveDirection[]::new);
     }
 }
