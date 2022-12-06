@@ -45,8 +45,12 @@ public class World {
 //        System.out.println(position2);
 //        System.out.println(position1.add(position2));
 
+        GrassField map = new GrassField(10);
+//        Animal kot = new Animal(map);
+        Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4) };
 
-        Animal kot = new Animal();
+
+
 //        out.println("System wystartował");
 //        String[] like_enum = change(input);
 //        run(like_enum);
@@ -64,15 +68,22 @@ public class World {
 
 
         String[] input = new String[]{"R", "f","f","f","b"};  //{'r', 's', 't', 'u', 'v'};
-        ArrayList<MoveDirection> output = new ArrayList<MoveDirection>();
+        MoveDirection[] output = OptionsParser.parse(input);
+
         out.println("System wystartował");
-        output = OptionsParser.parse(input);
-        for (int i = 0; i < output.size(); i++) {
-            MoveDirection one_dir = output.get(i);
-            kot.move(one_dir);
-           // out.println(kot.toString());
-        }
-        out.println(kot.toString());
-        out.println("System zakończył działanie");
+        IEngine engine = new SimulationEngine(output, map, positions);
+
+//        for (int i = 0; i < output.size(); i++) {
+//            MoveDirection one_dir = output.get(i);
+//            kot.move(one_dir);
+//           // out.println(kot.toString());
+//        }
+//        out.println(kot.toString());
+//        out.println(kot.getPosition().toString());
+//        out.println("System zakończył działanie");
+
+        System.out.println(map.toString());
+        System.out.println(map.entities.size());
+
     }
 }
